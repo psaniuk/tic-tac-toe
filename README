@@ -1,0 +1,60 @@
+# Tic-Tac-Toe Game
+
+## Overview
+
+This is a simple implementation of the Tic-Tac-Toe game using FastAPI.
+
+## Features
+
+- Play Tic-Tac-Toe against a computer.
+- Utilizes a random API for computer moves.
+
+## Running the Application
+
+The easiest way to launch the app is to run it in Docker:
+
+1. Navigate to the project root:
+
+    ```bash
+    cd tic-tac-toe
+    ```
+
+2. Build and start the app with Docker:
+
+    ```bash
+    docker compose up --build
+    ```
+
+3. Use curl to access HTTP GET `/game/new` endpoint:
+
+    ```bash
+    curl localhost:8000/game/new
+    ```
+
+The application also will be accessible in browser at [http://localhost:8000](http://localhost:8000).
+
+## Running Tests
+
+To run all tests, execute the following command from the project root directory:
+
+```bash
+python -m unittest discover -p '*_tests.py' -s tests
+```
+
+## Next Steps
+
+1. Enhance the error handling in `GameService` for responses from the Random API, ensuring graceful handling of potential issues. Add retries.
+
+2. Implement logging to provide better visibility into the application's behavior and potential issues.
+
+3. Extend the model to support different grid sizes, such as 5x5, providing a more customizable gaming experience.
+
+4. Asynchronously handle the `/game/new` endpoint and introduce a new endpoint to retrieve the game result. This can improve the overall responsiveness of the application.
+
+5. Refactor the `Grid.getWinner()` function by incorporating filled counters in the `move()` method. This approach can lead to a more efficient and maintainable implementation.
+
+6. Allow users to specify the grid size and the number of players when starting a new game. This provides flexibility and customization options for a diverse gaming experience.
+
+7. Consider settings for multiple environements: qa, prod.
+
+8. Introduce e2e tests.
